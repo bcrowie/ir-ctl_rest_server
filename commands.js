@@ -1,6 +1,6 @@
 const { exec } = require('child_process');
 const { Router } = require('express');
-const Insignia = require('./insignia.json');
+const Codes = require('./codes.json');
 const listener = new Router();
 
 const txIr = (cmd) => {
@@ -10,8 +10,8 @@ const txIr = (cmd) => {
 listener.get("/:command", async (req, res) => {
     const { command } = req.params;
 
-    if (Insignia[command]) {
-        txIr(Insignia[command]);
+    if (Codes[command]) {
+        txIr(Codes[command]);
         res.status(200).json({ msg: "Success" });
     } else {
         res.status(404).json({ msg: "Failed" });
