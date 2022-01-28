@@ -1,0 +1,12 @@
+[Unit]
+Description=Infrared Controller REST Server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /opt/ir-ctl_rest_server/app.js
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
